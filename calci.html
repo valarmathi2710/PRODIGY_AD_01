@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator</title>
+</head>
+<body>
+<table border=2>
+<div class="calculator">
+     <tr>
+    <td colspan=4><input type="text" id="result" readonly></td></tr>
+     <tr>
+    <td><input type="button" value="1" onclick="addToResult('1')"></td>
+     <td><input type="button" value="2" onclick="addToResult('2')"> </td>
+     <td><input type="button" value="3" onclick="addToResult('3')"> </td>
+     <td><input type="button" value="+" onclick="addToResult('+')"> </td>
+     </tr><tr>
+     <td><input type="button" value="4" onclick="addToResult('4')"> </td>
+     <td><input type="button" value="5" onclick="addToResult('5')"> </td>
+     <td><input type="button" value="6" onclick="addToResult('6')"> </td>
+     <td><input type="button" value="-" onclick="addToResult('-')"></td>
+     </tr><tr>
+     <td><input type="button" value="7" onclick="addToResult('7')"></td>
+     <td><input type="button" value="8" onclick="addToResult('8')"></td>
+     <td><input type="button" value="9" onclick="addToResult('9')"></td>
+     <td><input type="button" value="*" onclick="addToResult('*')"></td>
+     </tr><tr>
+     <td><input type="button" value="C" onclick="clearResult()"></td>
+    <td> <input type="button" value="0" onclick="addToResult('0')"></td>
+     <td><input type="button" value="=" onclick="calculate()"></td>
+     <td><input type="button" value="/" onclick="addToResult('/')"></td>
+    </tr>
+</div>
+
+<script>
+    function addToResult(value) {
+        document.getElementById('result').value += value;
+    }
+
+    function clearResult() {
+        document.getElementById('result').value = '';
+    }
+
+    function calculate() {
+        var result = document.getElementById('result').value;
+        try {
+            document.getElementById('result').value = eval(result);
+        } catch (error) {
+            alert('Invalid input!');
+            clearResult();
+        }
+    }
+</script>
+
+</body>
+</html>
